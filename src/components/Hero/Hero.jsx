@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import BgImage from "../../assets/bg-slate.png";
 import { motion,useAnimate,useInView } from "framer-motion";
-
+import {FaInstagram,FaFacebook,FaTwitter} from 'react-icons/fa'
 const bgImage = {
     backgroundImage: `url(${BgImage})`,
     backgroundSize: 'cover',
@@ -12,11 +12,29 @@ const bgImage = {
 }
 
 const Hero = () => {
+    function toggleNavbar() {
+        const navbar = document.querySelector('.nav-bar');
+        const check = navbar.classList.contains('nav-hide');
+        if(check){
+            navbar.classList.remove('nav-hide');
+            navbar.classList.add('nav-nonehide');
+        } else {
+            navbar.classList.remove('nav-nonehide');
+            navbar.classList.add('nav-hide');
+        }
+    }
 
     return (
         <main style={bgImage}>
-            <section>
-                <div className="container">
+            <section className="relative h-full w-full">
+                <div className="nav-bar nav-nonehide absolute h-full lg:w-[140px] bg-primaryDark right-0 z-10 flex flex-col justify-center items-center gap-8">
+                    <div className="w-[1px] h-[100px] bg-white"></div>
+                    <a href="https://www.instagram.com/" target="_blank"><FaInstagram className="text-white text-4xl cursor-pointer"/></a>
+                    <a href="https://www.facebook.com/" target="_blank"><FaFacebook className="text-white text-4xl cursor-pointer"/></a>
+                    <a href="https://www.twitter.com/" target="_blank"><FaTwitter className="text-white text-4xl cursor-pointer"/></a>
+                    <div className="w-[1px] h-[100px] bg-white"></div>
+                </div>
+                <div className="container overflow-hidden">
                     <motion.div className="header"
                         initial={{ opacity: 0, y: -100 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -28,12 +46,12 @@ const Hero = () => {
                             damping: 10
                         }}
                     >
-                        <div className="flex justify-between items-center md:grid-cols-2 py-[2rem]">
+                        <div className="flex justify-between items-center md:grid-cols-2 py-[2rem] relative z-20">
                             <div className="text-primary text-opacity-1">
                                 <p className="text-2xl font-bold ">ORDERS <span className="text-white">COFFEE.</span></p>
                             </div>
-                            <span class="material-symbols-outlined text-white text-4xl">
-                                menu
+                            <span onClick={toggleNavbar} class="material-symbols-outlined text-white text-4xl cursor-pointer">
+                                    menu
                             </span>
                         </div>
                     </motion.div>
@@ -108,7 +126,7 @@ const Hero = () => {
                               >   
                             </motion.div>
                         </div>
-                        <div className="text-lightOrange md:mt-0 p-4 space-y-28 flex-auto lg:block hidden ">
+                        <div className="text-lightOrange md:mt-0 p-4 space-y-28 flex-auto lg:block hidden">
                             <div className="relative bottom-[-100px]  z-10 space-y-2 ">
                                     <motion.div 
                                     initial={{ opacity: 0, y: 100 }}
@@ -140,7 +158,7 @@ const Hero = () => {
 
                             </motion.div>
                         </div>
-                        <div className="absolute z-5 -top-[60px] right-[55%] xl:w-[0] ">
+                        <div className="absolute z-1 -top-[60px] w-[100px] right-[48%] lg:block hidden ">
                             <motion.div className="text-[140px] scale-105 text-darkGray font-bold"
                                 initial={{ opacity: 0, x: -100 }}
                                 whileInView={{ opacity: 0.5, x: 0 }}
@@ -154,7 +172,6 @@ const Hero = () => {
                             >BLVCK TUMBLER</motion.div>
                         </div>
                     </div>
-                    
                 </div>
             </section>
         </main>

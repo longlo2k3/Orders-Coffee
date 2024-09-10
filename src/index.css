@@ -31,6 +31,43 @@
   }
 }
 
+.nav-nonehide {
+  opacity: 1;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+    
+  }
+  50% {
+    transform: translateX(-20px);
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.nav-hide {
+  animation: slideOut 0.5s ease-in-out;
+  opacity: 0;
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0px);
+    opacity: 1;
+    
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+}
 
 
 

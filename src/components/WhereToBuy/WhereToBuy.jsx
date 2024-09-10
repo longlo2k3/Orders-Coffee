@@ -29,7 +29,7 @@ const WhereToBuy = () => {
                         stiffness:120,
                         damping:10,
                     }}>
-                    <input type="text" placeholder='Name' className='input-style w-full lg:w-[150px] flex-1'/>
+                    <input type="text" placeholder='Name' className='input-style w-full lg:w-[150px] w-[50%]'/>
                     <input type="text" placeholder='Email' className='input-style w-full flex-1'/>
                     </motion.div>
                 <motion.div className='flex flex-row gap-4 mb-8'
@@ -43,7 +43,7 @@ const WhereToBuy = () => {
                         damping:10,
                     }}>
                     <input type="text" placeholder='Country' className='input-style w-full flex-1'/>
-                    <input type="text" placeholder='Zipcode' className='input-style w-full lg:w-[150px] flex-1'/>
+                    <input type="text" placeholder='Zipcode' className='input-style w-full lg:w-[150px] w-[50%]'/>
                 </motion.div>
                 
                 <motion.button className='h-[41px] w-full bg-primary text-white rounded-md'
